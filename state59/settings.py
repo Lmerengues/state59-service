@@ -77,10 +77,10 @@ WSGI_APPLICATION = 'state59.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'test',
-        'USER': 'test',
-        'PASSWORD': 'test123',
-        'HOST':'localhost',
+        'NAME': 'obelearn',
+        'USER': 'root',
+        'PASSWORD': 'Thuws^7130',
+        'HOST':'202.112.113.119',
         'PORT':'3306',
     }
 }

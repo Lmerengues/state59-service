@@ -13,20 +13,11 @@ def dictfetchall(cursor):
 
 def index(request):
 
-    hno = request.GET['hno']
-
-
-
-    raw = {"id":1,"text":"xxx"}
 
     cursor = connections['default'].cursor()
-    cursor.execute("select * from homework limit 10")
-
+    cursor.execute("select * from task")
     raw = dictfetchall(cursor)
     cursor.close()
-
-
-
 
     response = HttpResponse(json.dumps(raw), content_type="application/json")
     return response

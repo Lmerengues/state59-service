@@ -8,7 +8,7 @@ import requests
 def index(res):
     url = "https://api.weixin.qq.com/sns/jscode2session"
 
-    querystring = {"appid": "wxdd514a582c66e421", "secret": "191ed077cacd59a5d00767ef6e30fa0b",
+    querystring = {"appid": "wxdd514a582c66e421", "secret": "3c5f5359cbcfcc16e9427f29b3488f9c",
                    "js_code": res.GET['code'], "grant_type": "authorization_code"}
 
     headers = {
@@ -24,6 +24,8 @@ def index(res):
     response = requests.request("GET", url, headers=headers, params=querystring)
 
     userdata = json.loads(response.text)
+#    return  HttpResponse(userdata['openid'], content_type="application/json")
+
     cursor = connections['default'].cursor()
 
     #resp = HttpResponse(json.dumps(userdata), content_type="application/json")
@@ -37,11 +39,11 @@ def index(res):
 
 
         rawdata = json.loads(res.GET['rawData'])
-        icursor = connections['klook'].cursor()
+        icursor = connections['default'].cursor()
         #resp = HttpResponse(json.dumps(userdata), content_type="application/json")
 
         #return resp
-        icursor.execute("insert into Users values(%s,%s,%s,%s,%s,%s,%s,%s,sysdate(),0)", (userdata['openid'], rawdata['nickName'], rawdata['gender'], rawdata['language'], rawdata['city'],rawdata['province'], rawdata['country'], rawdata['avatarUrl'],))
+        icursor.execute("insert into Users values(%s,%s,%s,%s,%s,%s,%s,%s,sysdate())", (userdata['openid'], rawdata['nickName'], rawdata['gender'], rawdata['language'], rawdata['city'],rawdata['province'], rawdata['country'], rawdata['avatarUrl'],))
 
         icursor.close()
 

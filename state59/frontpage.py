@@ -35,6 +35,7 @@ def index(request):
     newraw = []
     for record in raw:
         record["left"] = getsecond(record["tddl"])
+        record["tddl"] = datetime.datetime.strftime(record["tddl"],"%Y-%m-%d %H:%M:%S")
     newraw = sorted(raw, key=lambda x:x["left"])
 
     response = HttpResponse(json.dumps(newraw), content_type="application/json")

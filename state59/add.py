@@ -49,19 +49,20 @@ def addimage(request):
     f = request.FILES['img']
     
     t = str(time.time())
-    img_path = "/var/www/html/images/"
+    img_path = "/var/www/html/state59/static/images/"
 
     #root_dir = img_path+''.join(random.sample(string.ascii_letters + string.digits, 16))
-    root_dir = img_path+ t
-    #if not os.path.exists(root_dir):
-    #    os.mkdir(root_dir)
-
+    root_dir = img_path+ "1"
+    if not os.path.exists(root_dir):
+        os.mkdirs(root_dir)
+    else:
+	print "1"	
     '''
     with open(root_dir + '/' + f.name, 'wb+') as destination:
         for chunk in f.chunks():
             destination.write(chunk)
     '''
-    dict = {'status':1}
+    dict = {'status':root_dir}
 
     resp = HttpResponse(json.dumps(dict), content_type="application/json")
     return resp

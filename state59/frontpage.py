@@ -31,9 +31,12 @@ def index(request):
     raw = dictfetchall(cursor)
     cursor.close()
 
+    lefttiime = []
     for record in raw:
-        record["left"] = getsecond(record["tddl"])
-    raw = sorted(raw, key=lambda x:x["left"])
+        lefttiime.append(getsecond(record["tddl"]))
 
-    response = HttpResponse(json.dumps(raw), content_type="application/json")
+    newraw = []
+    for lt in lefttiime:
+        newraw.append(raw[lt])
+    response = HttpResponse(json.dumps(newraw), content_type="application/json")
     return response

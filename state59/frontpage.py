@@ -34,7 +34,7 @@ def index(request):
     # lefttime = []
     newraw = []
     for record in raw:
-        record["left"] = getsecond(record["tddl"])
+        record["left"] = getsecond(str(record["tddl"]))
         # lefttime.append(record["left"])
     newraw = sorted(raw, key=lambda x:x["left"])
     # for i in range(len(raw)):

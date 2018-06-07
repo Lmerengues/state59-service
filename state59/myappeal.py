@@ -3,6 +3,7 @@ from django.http import HttpResponse
 
 import json
 from django.db import connections
+import datetime
 
 def dictfetchall(cursor):
 	desc = cursor.description
@@ -18,6 +19,8 @@ def index(request):
     cursor.execute("select hno, htitle, hddl, hmoney, pageviews, finished_label from help where uid = %s", (uid,))
     raw = dictfetchall(cursor)
     cursor.close()
+    for data in raw:
+        data['hddl'] = datetime.datetime.strftime(data['hddl'],'%Y-%m-%d %H:%M:%S')
     for data in raw:
         if data['finished_label'] == 0:
             data['finished_label_text'] = '未接单'

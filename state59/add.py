@@ -17,7 +17,7 @@ def dictfetchall(cursor):
 def addhelp(request):
     title = request.GET['title']
     ddl = request.GET['ddl']
-    tim = request.GET['tim']
+    tim = request.GET['time']
     typ = request.GET['typ']
     money = request.GET['money']
     detail = request.GET['detail']
@@ -25,8 +25,10 @@ def addhelp(request):
     wechat = request.GET['wechat']
     uid = request.GET['openid']
 
+    datet = datetime.datetime(int(ddl.split('-')[0]),int(ddl.split('-')[1]),int(ddl.split('-')[2]),int(tim.split(':')[0]),int(tim.split(':')[1]))
+
     cursor = connections['default'].cursor()
-    cursor.execute("insert into help values(null,%s,sysdate(),%s,%s,%s,0,0,%s,%s,%s)",title,money,typ,detail,uid,mobile,wechat)
+    cursor.execute("insert into help values(null,%s,%s,%s,%s,%s,0,0,%s,%s,%s)",(title,datet,money,typ,detail,uid,mobile,wechat,))
     raw = dictfetchall(cursor)
     cursor.close()
 

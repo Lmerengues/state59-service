@@ -20,13 +20,6 @@ def index(request):
     cursor.execute("select unickName, ugender, uavatarurl from Users where uid = %s", (uid,))
     raw = dictfetchall(cursor)
     cursor.close()
-    for data in raw:
-        if data['ugender'] == 0:
-            data['ugender_text'] = '未知'
-        elif data['finished_label'] == 1:
-            data['ugender_text'] = '男'
-        elif data['finished_label'] == 2:
-            data['ugender_text'] = '女'
 
     response = HttpResponse(json.dumps(raw), content_type="application/json")
     return response

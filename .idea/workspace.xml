@@ -2,9 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="43c924e0-e5c8-4e28-a0b7-8509e31c0602" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.git-credentials" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/state59/frontpage.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/state59/add.py" afterPath="$PROJECT_DIR$/state59/add.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/state59/editprofile.py" afterPath="$PROJECT_DIR$/state59/editprofile.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/state59/login.py" afterPath="$PROJECT_DIR$/state59/login.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/state59/settings.py" afterPath="$PROJECT_DIR$/state59/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/state59/myappeal.py" afterPath="$PROJECT_DIR$/state59/myappeal.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/state59/myappeal_details.py" afterPath="$PROJECT_DIR$/state59/myappeal_details.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/state59/urls.py" afterPath="$PROJECT_DIR$/state59/urls.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,11 +23,21 @@
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/state59/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="23" lean-forward="false" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+            <state relative-caret-position="300">
+              <caret line="20" column="23" lean-forward="false" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".git-credentials" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.git-credentials">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -34,8 +49,9 @@
               <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
-                <marker date="1528376133010" expanded="true" signature="1272:1306" ph="select * fro... Users" />
-                <marker date="1528376133010" expanded="true" signature="1616:1675" ph="insert into Users... " />
+                <marker date="1528376849801" expanded="true" signature="1482:1964" ph="..." />
+                <marker date="1528376849801" expanded="true" signature="1592:1689" ph="..." />
+                <marker date="1528376849801" expanded="true" signature="1715:1774" ph="insert into Users... " />
               </folding>
             </state>
           </provider>
@@ -44,11 +60,11 @@
       <file leaf-file-name="add.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/state59/add.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="531">
-              <caret line="55" column="5" lean-forward="false" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
+            <state relative-caret-position="216">
+              <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
               <folding>
                 <element signature="e#24#60#0" expanded="true" />
-                <marker date="1528376774019" expanded="true" signature="704:768" ph="insert into help... " />
+                <marker date="1528376869017" expanded="true" signature="852:909" ph="insert into help... " />
               </folding>
             </state>
           </provider>
@@ -69,14 +85,13 @@
       <file leaf-file-name="myappeal_details.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/state59/myappeal_details.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="48" column="18" lean-forward="true" selection-start-line="45" selection-start-column="4" selection-end-line="48" selection-end-column="18" />
+            <state relative-caret-position="276">
+              <caret line="43" column="18" lean-forward="false" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
               <folding>
                 <element signature="e#24#60#0" expanded="true" />
-                <marker date="1528369176576" expanded="true" signature="371:520" ph="select hno, help_accept" />
-                <marker date="1528369176576" expanded="true" signature="1026:1080" ph="select accep... help_accept" />
-                <marker date="1528369176576" expanded="true" signature="1346:1402" ph="update help_... " />
-                <marker date="1528369176576" expanded="true" signature="1502:1651" ph="select hno, help_accept" />
+                <marker date="1528376849796" expanded="true" signature="276:585" ph="..." />
+                <marker date="1528376849796" expanded="true" signature="371:520" ph="select hno, help_accept" />
+                <marker date="1528376849796" expanded="true" signature="1514:1612" ph="..." />
               </folding>
             </state>
           </provider>
@@ -87,9 +102,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <marker date="1528369176575" expanded="true" signature="371:455" ph="select hno, help" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -328,8 +341,9 @@
           <caret line="10" column="93" lean-forward="false" selection-start-line="10" selection-start-column="93" selection-end-line="10" selection-end-column="93" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
-            <marker date="1528376133010" expanded="true" signature="1272:1306" ph="select * fro... Users" />
-            <marker date="1528376133010" expanded="true" signature="1616:1675" ph="insert into Users... " />
+            <marker date="1528376849801" expanded="true" signature="1482:1964" ph="..." />
+            <marker date="1528376849801" expanded="true" signature="1592:1689" ph="..." />
+            <marker date="1528376849801" expanded="true" signature="1715:1774" ph="insert into Users... " />
           </folding>
         </state>
       </provider>
@@ -382,22 +396,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1528369176575" expanded="true" signature="371:455" ph="select hno, help" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/state59/myappeal_details.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="48" column="18" lean-forward="true" selection-start-line="45" selection-start-column="4" selection-end-line="48" selection-end-column="18" />
+        <state relative-caret-position="276">
+          <caret line="43" column="18" lean-forward="false" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
           <folding>
             <element signature="e#24#60#0" expanded="true" />
-            <marker date="1528369176576" expanded="true" signature="371:520" ph="select hno, help_accept" />
-            <marker date="1528369176576" expanded="true" signature="1026:1080" ph="select accep... help_accept" />
-            <marker date="1528369176576" expanded="true" signature="1346:1402" ph="update help_... " />
-            <marker date="1528369176576" expanded="true" signature="1502:1651" ph="select hno, help_accept" />
+            <marker date="1528376849796" expanded="true" signature="276:585" ph="..." />
+            <marker date="1528376849796" expanded="true" signature="371:520" ph="select hno, help_accept" />
+            <marker date="1528376849796" expanded="true" signature="1514:1612" ph="..." />
           </folding>
         </state>
       </provider>
@@ -418,8 +429,9 @@
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
-            <marker date="1528376133010" expanded="true" signature="1272:1306" ph="select * fro... Users" />
-            <marker date="1528376133010" expanded="true" signature="1616:1675" ph="insert into Users... " />
+            <marker date="1528376849801" expanded="true" signature="1482:1964" ph="..." />
+            <marker date="1528376849801" expanded="true" signature="1592:1689" ph="..." />
+            <marker date="1528376849801" expanded="true" signature="1715:1774" ph="insert into Users... " />
           </folding>
         </state>
       </provider>
@@ -442,19 +454,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/state59/add.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="531">
-          <caret line="55" column="5" lean-forward="false" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
+        <state relative-caret-position="216">
+          <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding>
             <element signature="e#24#60#0" expanded="true" />
-            <marker date="1528376774019" expanded="true" signature="704:768" ph="insert into help... " />
+            <marker date="1528376869017" expanded="true" signature="852:909" ph="insert into help... " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.git-credentials">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/state59/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="23" lean-forward="false" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+        <state relative-caret-position="300">
+          <caret line="20" column="23" lean-forward="false" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>

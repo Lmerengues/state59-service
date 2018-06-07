@@ -18,11 +18,6 @@ def index(request):
     cursor.execute("select hno, unickName, uavatarurl, mobile, wechatnum, message, accepted_label from help_accept, Users where help_accept.uid = Users.uid and hhno = %s", (hno,))
     raw = dictfetchall(cursor)
     cursor.close()
-    for data in raw:
-        if data['accepted_label'] == 0:
-            data['accepted_label_text'] = '接受'
-        elif data['accepted_label'] == 1:
-            data['accepted_label_text'] = '已接受'
     response = HttpResponse(json.dumps(raw), content_type="application/json")
     return response
 
@@ -47,11 +42,6 @@ def accept(request):
     cursor.execute("select hno, unickName, uavatarurl, mobile, wechatnum, message, accepted_label from help_accept, Users where help_accept.uid = Users.uid and hhno = %s", (hhno,))
     raw = dictfetchall(cursor)
     cursor.close()
-    for data in raw:
-        if data['accepted_label'] == 0:
-            data['accepted_label_text'] = '接受'
-        elif data['accepted_label'] == 1:
-            data['accepted_label_text'] = '已接受'
     response = HttpResponse(json.dumps(raw), content_type="application/json")
     return response
 

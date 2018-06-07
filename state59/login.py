@@ -29,13 +29,17 @@ def index(res):
 
     cursor = connections['default'].cursor()
 
-    #resp = HttpResponse(json.dumps(userdata), content_type="application/json")
+#    resp = HttpResponse(json.dumps(userdata), content_type="application/json")
 
-    #return resp
+#    return resp
 
     cursor.execute("select * from Users where uid = %s", (userdata['openid'],))
 
     flag = 1
+
+#    resp = HttpResponse(json.dumps(userdata), content_type="application/json")
+
+ #   return resp
     if (len(cursor.fetchall()) == 0):
 
 

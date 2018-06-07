@@ -14,6 +14,7 @@ def dictfetchall(cursor):
 def getsecond(date):
 
     now = datetime.now()
+    date = date.replace(tzinfo=None)
     # day_min = date.split()
     # year = day_min[0].split('-')[0]
     # month = day_min[0].split('-')[1]
@@ -41,6 +42,7 @@ def index(request):
 
 def reply(request):
     cursor = connections['default'].cursor()
-    cursor.execute("select * from task")
+    cursor.execute("select * from posts where ptype = 1")
     raw = dictfetchall(cursor)
     cursor.close()
+

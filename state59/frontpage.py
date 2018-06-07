@@ -15,35 +15,29 @@ def getsecond(date):
 
     now = datetime.now()
     date = date.replace(tzinfo=None)
-    # day_min = date.split()
-    # year = day_min[0].split('-')[0]
-    # month = day_min[0].split('-')[1]
-    # day = day_min[0].split('-')[2]
-    # hour = day_min[1].split(':')[0]
-    # minute = day_min[1].split(':')[1]
-    # dt = datetime(int(year), int(month), int(day), int(hour), int(minute))
     return (date - now).seconds
 
-def index(request):
+# def index(request):
 
 
-    cursor = connections['default'].cursor()
-    cursor.execute("select * from task")
-    raw = dictfetchall(cursor)
-    cursor.close()
+#     cursor = connections['default'].cursor()
+#     cursor.execute("select * from task")
+#     raw = dictfetchall(cursor)
+#     cursor.close()
 
-    newraw = []
-    for record in raw:
-        record["left"] = getsecond(record["tddl"])
-        record["tddl"] = datetime.strftime(record["tddl"],"%Y-%m-%d %H:%M:%S")
-    newraw = sorted(raw, key=lambda x:x["left"])
+#     newraw = []
+#     for record in raw:
+#         record["left"] = getsecond(record["tddl"])
+#         record["tddl"] = datetime.strftime(record["tddl"],"%Y-%m-%d %H:%M:%S")
+#     newraw = sorted(raw, key=lambda x:x["left"])
 
-    response = HttpResponse(json.dumps(newraw), content_type="application/json")
-    return response
+#     response = HttpResponse(json.dumps(newraw), content_type="application/json")
+#     return response
 
 def reply(request):
+    ptype = request.GET['ptype']
     cursor = connections['default'].cursor()
-    cursor.execute("select * from posts where ptype = 1")
+    cursor.execute("select * from posts where ptype = %d",ptype)
     raw = dictfetchall(cursor)
     cursor.close()
 

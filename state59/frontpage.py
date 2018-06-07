@@ -39,7 +39,7 @@ def index(request):
 
     for i in range(len(raw)):
         minv = min(lefttime)
-        newrow.append(row[lefttime.index(minv)])
+        newrow.append(raw[lefttime.index(minv)])
         lefttime[lefttime.index(minv)] = max(lefttime) + 1
 
     response = HttpResponse(json.dumps(newraw), content_type="application/json")

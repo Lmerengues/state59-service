@@ -32,14 +32,14 @@ def index(request):
     cursor.close()
 
     lefttime = []
-    newrow = []
+    newraw = []
     for record in raw:
         record["left"] = getsecond(record["tddl"])
         lefttime.append(record["left"])
 
     for i in range(len(raw)):
         minv = min(lefttime)
-        newrow.append(raw[lefttime.index(minv)])
+        newraw.append(raw[lefttime.index(minv)])
         lefttime[lefttime.index(minv)] = max(lefttime) + 1
 
     response = HttpResponse(json.dumps(newraw), content_type="application/json")

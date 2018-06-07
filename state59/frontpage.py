@@ -33,7 +33,7 @@ def index(request):
 
     for record in raw:
         record["left"] = getsecond(record["tddl"])
-    raw = sort(raw, key=lambda x:x["left"])
+    raw = sorted(raw, key=lambda x:x["left"])
 
     response = HttpResponse(json.dumps(raw), content_type="application/json")
     return response

@@ -57,5 +57,6 @@ def detail(request):
     cursor.close()
 
     newraw = raw[0]
+    newraw["pdate"] = datetime.strftime(newraw["pdate"],"%Y-%m-%d %H:%M:%S")
     response = HttpResponse(json.dumps(newraw), content_type="application/json")
     return response

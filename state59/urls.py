@@ -9,7 +9,7 @@ urlpatterns = [
     # url(r'^$', 'state59.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
     url(r'^index$', view.index),
-    url(r'^frontpage$', frontpage.index),
+    url(r'^frontpage$', frontpage.reply),
     url(r'^editprofile$', editprofile.index),
     url(r'^notification$', notification.index),
     url(r'^myappeal$', myappeal.index),

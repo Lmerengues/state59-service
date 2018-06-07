@@ -45,6 +45,8 @@ def reply(request):
         record["left"] = getsecond(record["hddl"])
         record["hddl"] = datetime.strftime(record["hddl"],"%Y-%m-%d %H:%M:%S")
         record["hpublic"] = datetime.strftime(record["hpublic"],"%Y-%m-%d %H:%M:%S")
+        if record["ismoney"] == 1:
+            record["hmoney"] = float(record[hmoney]) / 100
     newraw = sorted(raw, key=lambda x:x["left"])
     response = HttpResponse(json.dumps(newraw), content_type="application/json")
     return response
@@ -57,6 +59,8 @@ def detail(request):
     cursor.close()
 
     newraw = raw[0]
+    if newraw["ismoney"] == 1:
+        newraw["hmoney"] = float(newraw[hmoney]) / 100
     newraw["hddl"] = datetime.strftime(newraw["hddl"],"%Y-%m-%d %H:%M:%S")
     newraw["hpublic"] = datetime.strftime(newraw["hpublic"],"%Y-%m-%d %H:%M:%S")
     response = HttpResponse(json.dumps(newraw), content_type="application/json")

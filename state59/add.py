@@ -45,19 +45,24 @@ def addhelp(request):
 
 
 def addimage(request):
-
+    
     f = request.FILES['img']
-
+    
     t = str(time.time())
-    root_dir = '/var/www/html/mp/static/images/'+''.join(random.sample(string.ascii_letters + string.digits, 16))
-    if not os.path.exists(root_dir):
-        os.mkdir(root_dir)
+    img_path = "/var/www/html/images/"
 
+    #root_dir = img_path+''.join(random.sample(string.ascii_letters + string.digits, 16))
+    root_dir = img_path+ t
+    #if not os.path.exists(root_dir):
+    #    os.mkdir(root_dir)
+
+    '''
     with open(root_dir + '/' + f.name, 'wb+') as destination:
         for chunk in f.chunks():
             destination.write(chunk)
-
+    '''
     dict = {'status':1}
+
     resp = HttpResponse(json.dumps(dict), content_type="application/json")
     return resp
 

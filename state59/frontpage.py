@@ -35,9 +35,9 @@ def getsecond(date):
 #     return response
 
 def reply(request):
-    ptype = request.GET['ptype']
+    tp = request.GET['ptype']
     cursor = connections['default'].cursor()
-    cursor.execute("select * from posts where ptype = %d",ptype)
+    cursor.execute("select * from posts where ptype = %d",tp)
     raw = dictfetchall(cursor)
     cursor.close()
 

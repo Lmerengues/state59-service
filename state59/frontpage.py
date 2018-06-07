@@ -45,7 +45,7 @@ def reply(request):
     for record in raw:
         record["left"] = getsecond(record["pdate"])
         record["pdate"] = datetime.strftime(record["pdate"],"%Y-%m-%d %H:%M:%S")
-        record["public"] = datetime.strftime(record["public"],"%Y-%m-%d %H:%M:%S")
+        record["ppublic"] = datetime.strftime(record["ppublic"],"%Y-%m-%d %H:%M:%S")
     newraw = sorted(raw, key=lambda x:x["left"])
     response = HttpResponse(json.dumps(newraw), content_type="application/json")
     return response
@@ -59,6 +59,6 @@ def detail(request):
 
     newraw = raw[0]
     newraw["pdate"] = datetime.strftime(newraw["pdate"],"%Y-%m-%d %H:%M:%S")
-    newraw["ppublic"] = datetime.strftime(newraw["public"],"%Y-%m-%d %H:%M:%S")
+    newraw["ppublic"] = datetime.strftime(newraw["ppublic"],"%Y-%m-%d %H:%M:%S")
     response = HttpResponse(json.dumps(newraw), content_type="application/json")
     return response

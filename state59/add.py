@@ -50,19 +50,38 @@ def addimage(request):
     
     t = str(time.time())
     img_path = "/var/www/html/state59/static/images/"
-
+    err_str = ""
     #root_dir = img_path+''.join(random.sample(string.ascii_letters + string.digits, 16))
-    root_dir = img_path+ "1"
-    if not os.path.exists(root_dir):
-        os.mkdirs(root_dir)
-    else:
-	print "1"	
+    root_dir = img_path+ t
+    try:
+        if not os.path.exists(root_dir):
+            os.mkdir(root_dir)
+        else:
+	    print "1"
+        with open(root_dir + '/' + f.name, 'wb+') as destination:
+            for chunk in f.chunks():
+                destination.write(chunk)
+
+        cursor = connections['default'].cursor()
+        cursor.execute("insert into images values(null,%s)",("https://www.state59.com/static/images/"+t + '/' + f.name,))
+
+        cursor.close()
+    except Exception,e:
+        err_str = e.message
     '''
     with open(root_dir + '/' + f.name, 'wb+') as destination:
         for chunk in f.chunks():
             destination.write(chunk)
     '''
-    dict = {'status':root_dir}
+    cursor = connections['default'].cursor()
+    cursor.execute("select ino from images where iurl = %s",("https://www.state59.com/static/images/"+t + '/' + f.name,))
+    raw = dictfetchall(cursor)
+    cursor.close()
+    
+    if len(raw)==1:
+        dict = {'ino':raw[0]['ino'],'status':1}
+    else:    
+        dict = {'status':0}
 
     resp = HttpResponse(json.dumps(dict), content_type="application/json")
     return resp

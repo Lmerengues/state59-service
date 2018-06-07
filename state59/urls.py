@@ -1,6 +1,7 @@
 from django.conf.urls import include, url
 from django.contrib import admin
 
+import settings
 from . import view,login,frontpage
 from . import editprofile,notification,myappeal,myhelp
 
@@ -22,4 +23,5 @@ urlpatterns = [
     url(r'^uploadimg$', add.addimage),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^login', login.index),
+    url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
 ]

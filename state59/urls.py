@@ -1,7 +1,7 @@
 from django.conf.urls import include, url
 from django.contrib import admin
 
-from . import view,login,editprofile
+from . import view,login,frontpage
 from . import editprofile,notification,myappeal,myappeal_details,myhelp,accept
 
 urlpatterns = [

@@ -8,7 +8,7 @@ import requests
 def index(res):
     url = "https://api.weixin.qq.com/sns/jscode2session"
 
-    querystring = {"appid": "wxdd514a582c66e421", "secret": "3c5f5359cbcfcc16e9427f29b3488f9c",
+    querystring = {"appid": "wxdd514a582c66e421", "secret": "3c5f5359cbcfcc16e9427f29b3488f",
                    "js_code": res.GET['code'], "grant_type": "authorization_code"}
 
     headers = {

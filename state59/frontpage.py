@@ -31,12 +31,16 @@ def index(request):
     raw = dictfetchall(cursor)
     cursor.close()
 
-    lefttiime = []
+    lefttime = []
+    newrow = []
     for record in raw:
-        lefttiime.append(getsecond(record["tddl"]))
+        record["left"] = getsecond(record["tddl"])
+        lefttime.append(record["left"])
 
-    newraw = []
-    for lt in lefttiime:
-        newraw.append(raw[lt])
+    for i in range(len(raw)):
+        minv = min(lefttime)
+        newrow.append(row[lefttime.index(minv)])
+        lefttime[lefttime.index(minv)] = max(lefttime) + 1
+
     response = HttpResponse(json.dumps(newraw), content_type="application/json")
     return response

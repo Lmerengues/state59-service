@@ -86,3 +86,28 @@ def addimage(request):
     resp = HttpResponse(json.dumps(dict), content_type="application/json")
     return resp
 
+def addpost(request):
+
+    title = request.GET['title']
+    detail = request.GET['detail']
+    typ = request.GET['typ']
+    ino = request.GET['ino']
+    openid = request.GET['openid']
+
+    cursor = connections['default'].cursor()
+    cursor.execute("insert into posts values(null,%s,%s,%s,%s,sysdate())",(title, detail,openid, typ,))
+    cursor.close()
+
+    cursor = connections['default'].cursor()
+    cursor.execute("select * from posts where ptitle = %s and pdetail = %s",(title,detail,))
+    post = dictfetchall(cursor)
+    cursor.close()
+    pno  = post[0]['pno']
+
+    cursor = connections['default'].cursor()
+    cursor.execute("insert into posts_image values(%s,%s)", (ino, pno,))
+    cursor.close()
+
+    dict = {'status': 1}
+    resp = HttpResponse(json.dumps(dict), content_type="application/json")
+    return resp

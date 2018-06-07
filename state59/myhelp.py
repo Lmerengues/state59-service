@@ -20,7 +20,7 @@ def index(request):
     raw = dictfetchall(cursor)
     cursor.close()
     for data in raw:
-        if data['ismoney'] == 0:
+        if data['ismoney'] == 1:
             data['hmoney'] = str(round(1.0*int(data['hmoney'])/100,2)) + '元'
         data['hddl'] = datetime.datetime.strftime(data['hddl'],'%Y-%m-%d %H:%M:%S')
     response = HttpResponse(json.dumps(raw), content_type="application/json")

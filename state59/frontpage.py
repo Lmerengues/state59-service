@@ -35,30 +35,29 @@ def getsecond(date):
 #     return response
 
 def reply(request):
-    tp = request.GET['ptype']
     cursor = connections['default'].cursor()
-    cursor.execute("select * from posts where ptype = %s",tp)
+    cursor.execute("select * from help")
     raw = dictfetchall(cursor)
     cursor.close()
 
     newraw = []
     for record in raw:
-        record["left"] = getsecond(record["pdate"])
-        record["pdate"] = datetime.strftime(record["pdate"],"%Y-%m-%d %H:%M:%S")
-        record["ppublic"] = datetime.strftime(record["ppublic"],"%Y-%m-%d %H:%M:%S")
+        record["left"] = getsecond(record["hddl"])
+        record["hddl"] = datetime.strftime(record["hddl"],"%Y-%m-%d %H:%M:%S")
+        record["hpublic"] = datetime.strftime(record["hpublic"],"%Y-%m-%d %H:%M:%S")
     newraw = sorted(raw, key=lambda x:x["left"])
     response = HttpResponse(json.dumps(newraw), content_type="application/json")
     return response
 
 def detail(request):
-    pno = request.GET['pno']
+    hno = request.GET['hno']
     cursor = connections['default'].cursor()
-    cursor.execute("select * from posts where pno = %s",pno)
+    cursor.execute("select * from help where hno = %s",hno)
     raw = dictfetchall(cursor)
     cursor.close()
 
     newraw = raw[0]
-    newraw["pdate"] = datetime.strftime(newraw["pdate"],"%Y-%m-%d %H:%M:%S")
-    newraw["ppublic"] = datetime.strftime(newraw["ppublic"],"%Y-%m-%d %H:%M:%S")
+    newraw["hddl"] = datetime.strftime(newraw["hddl"],"%Y-%m-%d %H:%M:%S")
+    newraw["hpublic"] = datetime.strftime(newraw["hpublic"],"%Y-%m-%d %H:%M:%S")
     response = HttpResponse(json.dumps(newraw), content_type="application/json")
     return response

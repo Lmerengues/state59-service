@@ -48,3 +48,14 @@ def reply(request):
     newraw = sorted(raw, key=lambda x:x["left"])
     response = HttpResponse(json.dumps(newraw), content_type="application/json")
     return response
+
+def detail(request):
+    pno = request.GET['pno']
+    cursor = connections['default'].cursor()
+    cursor.execute("select * from posts where pno = %s",pno)
+    raw = dictfetchall(cursor)
+    cursor.close()
+
+    newraw = raw[0]
+    response = HttpResponse(json.dumps(newraw), content_type="application/json")
+    return response

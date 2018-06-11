@@ -54,7 +54,7 @@ def reply(request):
 def detail(request):
     hno = request.GET['hno']
     cursor = connections['default'].cursor()
-    cursor.execute("select * from help where hno = %s",hno)
+    cursor.execute("select * from help where hno = %s",[hno])
     raw = dictfetchall(cursor)
     cursor.close()
 

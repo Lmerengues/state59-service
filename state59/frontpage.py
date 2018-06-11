@@ -47,7 +47,10 @@ def reply(request):
     newraw = []
     for record in raw:
         record["left"] = getpastsecond(record["hddl"])
-        record["rdate"] = datetime.strftime(record["rdate"],"%Y-%m-%d %H:%M:%S")
+        record["hddl"] = datetime.strftime(record["hddl"],"%Y-%m-%d %H:%M:%S")
+        record["hpublic"] = datetime.strftime(record["hpublic"],"%Y-%m-%d %H:%M:%S")
+        if record["ismoney"] == 1:
+            record["hmoney"] = float(record["hmoney"]) / 100
     newraw = sorted(raw, key=lambda x:x["left"])
     response = HttpResponse(json.dumps(newraw), content_type="application/json")
     return response

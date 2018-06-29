@@ -33,7 +33,7 @@ def submitinfo(request):
 	note = request.GET['note']
 	uid = request.GET['uid']
 	cursor = connections['default'].cursor()
-	cursor.execute("insert into help_accept (hhno,mobile,wechatnum,accepted_label,message,uid) values(%s,%s,%s,%d,%s,%s)",[hno,phone,wxnumber,0,note,uid])
+	cursor.execute("insert into help_accept (hhno,mobile,wechatnum,accepted_label,message,uid) values(%s,%s,%s,%s,%s,%s)",[hno,phone,wxnumber,0,note,uid])
 	raw = dictfetchall(cursor)
 	cursor.close()
 

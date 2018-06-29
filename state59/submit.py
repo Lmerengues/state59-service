@@ -2,6 +2,7 @@ from django.http import HttpResponse
 
 import json
 from django.db import connections
+from datetime import datetime
 def dictfetchall(cursor):
 	desc = cursor.description
 	return [

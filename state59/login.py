@@ -6,9 +6,10 @@ from django.db import connections
 import requests
 
 def index(res):
+
     url = "https://api.weixin.qq.com/sns/jscode2session"
 
-    querystring = {"appid": "wxdd514a582c66e421", "secret": "3c5f5359cbcfcc16e9427f29b3488f9c",
+    querystring = {"appid": "wxdd514a582c66e421", "secret": "7bdf6552c4905dfb093f7dafe6918a62",
                    "js_code": res.GET['code'], "grant_type": "authorization_code"}
 
     headers = {
@@ -28,13 +29,17 @@ def index(res):
 
     cursor = connections['default'].cursor()
 
-    #resp = HttpResponse(json.dumps(userdata), content_type="application/json")
+#    resp = HttpResponse(json.dumps(userdata), content_type="application/json")
 
-    #return resp
+#    return resp
 
     cursor.execute("select * from Users where uid = %s", (userdata['openid'],))
 
     flag = 1
+
+#    resp = HttpResponse(json.dumps(userdata), content_type="application/json")
+
+ #   return resp
     if (len(cursor.fetchall()) == 0):
 
 

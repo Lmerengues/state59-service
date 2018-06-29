@@ -13,7 +13,7 @@ def index(request):
 
 	hno = request.GET['hno']
 	cursor = connections['default'].cursor()
-	cursor.execute("select * from help where hno = %s",hno)
+	cursor.execute("select * from help where hno = %s",str(hno))
 	raw = dictfetchall(cursor)
 	cursor.close()
 

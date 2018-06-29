@@ -2,7 +2,7 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 import settings
-from . import view,login,frontpage
+from . import view,login,frontpage,submit
 from . import editprofile,notification,myappeal,myhelp
 
 from . import add
@@ -11,6 +11,7 @@ urlpatterns = [
     # url(r'^$', 'state59.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
     url(r'^index$', view.index),
+    url(r'^submit$', submit.index),
     url(r'^frontpage$', frontpage.reply),
     url(r'^detail$', frontpage.detail),
     url(r'^editprofile$', editprofile.index),

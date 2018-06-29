@@ -12,6 +12,7 @@ urlpatterns = [
     # url(r'^blog/', include('blog.urls')),
     url(r'^index$', view.index),
     url(r'^submit$', submit.index),
+    url(r'^info$', submit.submitinfo),
     url(r'^frontpage$', frontpage.reply),
     url(r'^detail$', frontpage.detail),
     url(r'^editprofile$', editprofile.index),

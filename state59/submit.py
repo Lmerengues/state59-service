@@ -25,3 +25,17 @@ def index(request):
 	newraw["hpublic"] = datetime.strftime(newraw["hpublic"],"%Y-%m-%d %H:%M:%S")
 	response = HttpResponse(json.dumps(newraw), content_type="application/json")
 	return response
+
+def submitinfo(request):
+	hno = request.GET['hno']
+	phone = request.GET['phone']
+	wxnumber = request.GET['wxnumber']
+	note = request.GET['note']
+	uid = request.GET['uid']
+	cursor = connections['default'].cursor()
+	cursor.execute("insert into help_accept (hhno,mobile,wechatnum,accepted_label,message,uid) values(%s,%s,%s,%d,%s,%s)",[hno,phone,wxnumber,0,note,uid])
+	raw = dictfetchall(cursor)
+	cursor.close()
+
+	response = HttpResponse(json.dumps(raw), content_type="application/json")
+	return response
